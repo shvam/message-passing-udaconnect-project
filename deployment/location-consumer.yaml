@@ -2,37 +2,37 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    service: location-grpc
-  name: location-grpc
+    service: location-consumer
+  name: location-consumer
 spec:
   ports:
-  - name: "50050"
-    port: 50050
-    targetPort: 50050
-    nodePort: 30004
+  - name: "50010"
+    port: 50010
+    targetPort: 50010
+    nodePort: 30009
   selector:
-    service: location-grpc
+    service: location-consumer
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: location-grpc
-  name: location-grpc
+    service: location-consumer
+  name: location-consumer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: location-grpc
+      service: location-consumer
   template:
     metadata:
       labels:
-        service: location-grpc
+        service: location-consumer
     spec:
       containers:
-      - image: sh27dkr/locations-grpc:v1
-        name: location-grpc
+      - image: sh27dkr/locations-consumer:v1
+        name: location-consumer
         imagePullPolicy: Always
         env:
         - name: DB_USERNAME

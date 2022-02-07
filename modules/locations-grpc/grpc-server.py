@@ -50,8 +50,8 @@ class LocationServicer(location_pb2_grpc.LocationServiceServicer):
 def serve () :
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
     location_pb2_grpc.add_LocationServiceServicer_to_server(LocationServicer(), server)
-    logging.info( 'gRPC server starting on port 50051.')
-    server.add_insecure_port("[::]:50051")
+    logging.info( 'gRPC server starting on port 50050.')
+    server.add_insecure_port("[::]:50050")
     server.start()
     server.wait_for_termination()
 

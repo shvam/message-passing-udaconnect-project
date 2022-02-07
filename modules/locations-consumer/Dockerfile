@@ -7,4 +7,4 @@ COPY $PWD .
 RUN pip install -r requirements.txt
 EXPOSE 50010
 
-CMD ["python", "grpc-server.py"]
+CMD ["python", "locations-consumer.py"]

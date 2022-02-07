@@ -1,13 +1,11 @@
 Once the location-grpc service is running, Login to the corresponding pod with below command:
 
+$kubectl get po -l service=location-grpc
 $ kubectl exec -it (location-grpc-pod)  --/bin/sh
 
-Once inside the cotainer, run the client application which will send a grpc message to the kafka server
+Once inside the container, run the client application which will send a grpc message to the kafka server
 
 # python kafka-producer.py
 
-Next run the kafka-consumer which will read the message and sends it to the grpc server
-
-# python kafka-consumer.py
 
 

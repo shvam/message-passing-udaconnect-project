@@ -22,7 +22,7 @@ def run():
     )
     #send payload to kafka producer
     KAFKA_SERVER = 'kafka:9092'
-    KAFKA_TOPIC = "locations"
+    KAFKA_TOPIC = "location"
     producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
     kafka_data = MessageToJson(location).encode()
     producer.send(KAFKA_TOPIC, kafka_data)
